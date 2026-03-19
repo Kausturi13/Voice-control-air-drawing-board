@@ -26,8 +26,8 @@ def listen_voice():
 
     while True:
         try:
-            with sr.Microphone() as source:
-
+            with sr.Microphone(device_index=0) as source:
+                recognizer.adjust_for_ambient_noise(source)
                 print("Listening...")
 
                 audio = recognizer.listen(source)
